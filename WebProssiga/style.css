@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+    .background-container {
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Coloca o elemento abaixo do conteúdo */
+
+        }
+
+        .background-image {
+
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(5px); /* Aplique o filtro de desfoque */
+
+        }
+
+        .content {
+
+            z-index: 1; /* Coloca o conteúdo acima do elemento de fundo */
+
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .wpper{
+            color: rgb(4, 29, 77);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: rgba(255, 255, 255, 0.568);
+            padding: 20px;
+            border-radius: 20px;
+            width: 30%;
+            height: 60%;
+
+        }
+
+        .wpper h1 {
+    
+            font-size: 35px;
+            text-align: center;
+        }
+
+        .wpper .inputBox{
+            position: relative;
+            width:100%;
+            height:40px;
+            margin: 30px 0;
+    
+        }
+
+        .inputBox input {
+        
+            width: 100%;
+            height: 40%;
+            background: transparent;
+            border: none;
+            outline: none;
+            border: 2px solid rgb(12, 4, 117);
+            border-radius: 40px;
+            font-size: 17px;
+            color: blue;
+            padding: 20px 45px 20px 20px;
+        
+            }
+
+            .inputBox input::placeholder {
+    
+                color:rgb(12, 4, 117) ;
+            
+                }
+            
+            .inputBox i {
+                position: absolute;
+                right: 30px;
+                top: 27%;
+                transform: translate(50%);
+                font-size: 25px;
+            
+                }
+                .wpper .btn {
+
+                    background-image: linear-gradient(to right,rgb(7, 47, 121),rgb(7, 47, 121));
+                    width: 100%;
+                    border: none;
+                    padding: 10px;
+                    color: white;
+                    font-size: 20px;
+                    cursor: pointer;
+                    border-radius: 10px;
+                    
+                }
+                .btn:hover{
+
+                    background-image: linear-gradient(to right,rgb(148, 8, 8), rgb(148, 8, 8));
+            
+                    }
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
