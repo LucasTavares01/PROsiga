@@ -55,7 +55,7 @@
             padding: 20px;
             border-radius: 20px;
             width: 30%;
-            height: 60%;
+            height: 35%;
 
         }
 
@@ -111,7 +111,7 @@
                     color: white;
                     font-size: 20px;
                     cursor: pointer;
-                    border-radius: 10px;
+                    border-radius: 30px;
                     
                 }
                 .btn:hover{
@@ -120,6 +120,11 @@
             
                     }
             
+
+
+
+
+
 
 
 
