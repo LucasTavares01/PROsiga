@@ -8,8 +8,15 @@ class ControlePresenca {
         $resultados = $bd->consultar("SELECT * FROM PRESENCA WHERE ID_AULA = $idAula");
         if($resultados) {
             foreach ($resultados as $resultado) {
+                $aluno = null;
+                $buscas = $bd->consultar("SELECT ID_ALUNO FROM MATRICULA WHERE ID_MATR = $resultado['ID_MATR']");
+                foreach ($buscas as $busca) {
+                    $aluno = ControleAluno::buscarAluno($busca['ID_ALUNO']);
+                    break;
+                }
                 $presenca = new Presenca($resultado['ID_AULA'],
                 $resultado['ID_MATR'],
+                $aluno,
                 $resultado['DATA'],
                 $resultado['PRESENCAS'],
                 $resultado['ID_PRESENCA']);
@@ -22,9 +29,17 @@ class ControlePresenca {
         return $presencas;
     }
 
-    private static function criarPresencas($idAula, $idMatricula, $data) {
+    private static function criarPresencas($idAula) {
         $presencas = [];
-
+        $alunos = ControleAluno::buscarAlunos($idAula);
+        foreach ($alunos as $aluno) {
+            $presenca = new Presenca($idAula,
+            $aluno->id_matr,
+            $aluno,
+            null,
+            0);
+            $presencas[] = $presenca;
+        }
         return $presencas;
     }
 
@@ -37,10 +52,13 @@ class ControlePresenca {
     private static function salvarPresenca($presenca) {
         $bd = BancoDeDados::obterInstancia();
         if($presenca->id_presenca === -1) {
-
+            $dados = ["ID_AULA" => "$presenca->id_aula",
+            "ID_MATR" => "$presenca->id_matr",
+            "PRESENCAS" => "$presenca->presencas"];
+            $bd->inserir("PRESENCA", $dados);
         } else {
-        $dados = ["PRESENCAS" => "$presenca->presencas"];
-        $bd->atualizar("PRESENCA", $dados, "ID_PRESENCA = '$presenca->id_presenca'" );
+            $dados = ["PRESENCAS" => "$presenca->presencas"];
+            $bd->atualizar("PRESENCA", $dados, "ID_PRESENCA = '$presenca->id_presenca'");
         }
     }
 }
