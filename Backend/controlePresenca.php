@@ -1,4 +1,9 @@
 <?php
+require("bancoDeDados.php");
+require("presenca.php");
+require("aluno.php");
+require("controleAluno.php");
+
 class ControlePresenca {
 
     public static function buscarPresencas($idAula) {

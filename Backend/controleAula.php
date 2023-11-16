@@ -1,4 +1,7 @@
 <?php
+require("bancoDeDados.php");
+require("aula.php");
+
 class ControleAula {
 
     public static function buscarAulas($codMateria) {
