@@ -52,6 +52,9 @@ class ControlePresenca {
         foreach ($presencas as $presenca) {
             salvarPresenca($presenca);
         }
+        $bd = BancoDeDados::obterInstancia();
+        $dados = ["STATUS" => "REALIZADA"];
+        $bd->atualizar("AULA", $dados, "ID_AULA = $SESSION['aula']");
     }
 
     private static function salvarPresenca($presenca) {

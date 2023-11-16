@@ -8,7 +8,7 @@ class ControleAula {
         $aulas = [];
         $bd = BancoDeDados::obterInstancia();
         $resultados = [];
-        $resultados = $bd->consultar("SELECT * FROM AULA WHERE COD_MAT = $codMateria");
+        $resultados = $bd->consultar("SELECT * FROM AULA WHERE COD_MAT = $codMateria ORDER BY DATA");
         foreach ($resultados as $resultado) {
             $aula = new Aula($resultado['ID_AULA'],
             $resultado['COD_MAT'],

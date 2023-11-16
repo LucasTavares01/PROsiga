@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Banco de dados: `ESCOLA`
@@ -35,7 +35,7 @@ CREATE TABLE `ALUNO` (
   `STATUS` varchar(15) NOT NULL DEFAULT 'AUSENTE',
   `EMAIL` varchar(50) NOT NULL,
   `SENHA` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Despejando dados para a tabela `ALUNO`
@@ -57,10 +57,10 @@ CREATE TABLE `AULA` (
   `COD_MAT` int NOT NULL,
   `N_PRESENCAS` int NOT NULL DEFAULT '0',
   `DATA` date NOT NULL,
-  `TITULO` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `COMENTARIO` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `TITULO` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `COMENTARIO` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `STATUS` varchar(50) NOT NULL DEFAULT 'NAO REALIZADA'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Despejando dados para a tabela `AULA`
@@ -88,7 +88,7 @@ CREATE TABLE `LOG_ENTR_SAID` (
   `DAT_HOR` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `RA` int NOT NULL,
   `ACAO` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -101,7 +101,7 @@ CREATE TABLE `MATERIA` (
   `NOME` varchar(150) NOT NULL,
   `ANO_SEM` date NOT NULL,
   `ID_PROF` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Despejando dados para a tabela `MATERIA`
@@ -122,7 +122,7 @@ CREATE TABLE `MATRICULA` (
   `ID_MATR` int NOT NULL,
   `ID_ALUNO` int NOT NULL,
   `COD_MAT` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Despejando dados para a tabela `MATRICULA`
@@ -148,7 +148,7 @@ CREATE TABLE `PRESENCA` (
   `ID_MATR` int NOT NULL,
   `DATA` date NOT NULL,
   `PRESENCAS` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -161,7 +161,7 @@ CREATE TABLE `PROFESSOR` (
   `NOME` varchar(150) NOT NULL,
   `EMAIL` varchar(150) NOT NULL,
   `SENHA` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Despejando dados para a tabela `PROFESSOR`

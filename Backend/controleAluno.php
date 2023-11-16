@@ -5,7 +5,7 @@ class ControleAluno {
     public static function buscarAluno($id_aluno) {
         $aluno = null;
         $bd = BancoDeDados::obterInstancia();
-        $resultados = $bd->consultar("SELECT ALUNO.ID_ALUNO, MATRICULA.ID_MATR, ALUNO.RA, ALUNO.NOME, ALUNO.IMG FROM ALUNO INNER JOIN MATRICULA ON MATRICULA.ID_ALUNO = ALUNO.ID_ALUNO WHERE ID_ALUNO = $id_aluno ORDER BY ALUNO.NOME");
+        $resultados = $bd->consultar("SELECT ALUNO.ID_ALUNO, MATRICULA.ID_MATR, ALUNO.RA, ALUNO.NOME, ALUNO.IMG FROM ALUNO INNER JOIN MATRICULA ON MATRICULA.ID_ALUNO = ALUNO.ID_ALUNO WHERE ALUNO.ID_ALUNO = $id_aluno AND MATRICULA.COD_MAT = $SESSION['materia']");
         foreach ($resultados as $resultado) {
             $aluno = new Aluno($resultado['ALUNO.ID_ALUNO'],
             $resultado['MATRICULA.ID_MATR'],

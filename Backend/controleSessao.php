@@ -42,7 +42,7 @@ class ControleSessao {
 
     public static function login($email, $senha) {
         limpar();
-        $professor = Professor::buscarProfessor($email, $senha);
+        $professor = controleProfessor::buscarProfessor($email, $senha);
         $_SESSION['professor'] = $professor;
         if($professor) {
             $materias = ControleMateria::buscarMaterias($professor->id_prof);
