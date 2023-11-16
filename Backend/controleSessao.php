@@ -1,14 +1,4 @@
 <?php
-require("professor.php");
-require("controleProfessor.php");
-require("materia.php");
-require("controleMateria.php");
-require("aula.php");
-require("controleAula.php");
-require("presenca.php");
-require("controlePresenca.php");
-require("aluno.php");
-require("controleAluno.php");
 
 class ControleSessao {
 
@@ -21,11 +11,11 @@ class ControleSessao {
     
     public function __construct() {
         session_start();
-        limpar();
+        ControleSessao::limpar();
 
     }
 
-    private static function limpar() {
+    public static function limpar() {
         $professor = null;
         $materias = [];
         $materia = null;
@@ -41,8 +31,8 @@ class ControleSessao {
     }
 
     public static function login($email, $senha) {
-        limpar();
-        $professor = controleProfessor::buscarProfessor($email, $senha);
+        ControleSessao::limpar();
+        $professor = ControleProfessor::buscarProfessor($email, $senha);
         $_SESSION['professor'] = $professor;
         if($professor) {
             $materias = ControleMateria::buscarMaterias($professor->id_prof);

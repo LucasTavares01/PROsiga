@@ -1,24 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Login</h1>
-    <form method="post" action="login.php">
-        <label for="email">Email:</label>
-        <input type="text" name="email" id="email" required><br>
-        
-        <label for="password">Senha:</label>
-        <input type="password" name="password" id="password" required><br>
-        
-        <input type="submit" value="Entrar">
-    </form>
 
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+<?php
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/controleSessao.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/controleProfessor.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/professor.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/controleMateria.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/materia.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/controleAula.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/aula.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/controlePresenca.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/presenca.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/controleAluno.php');
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/aluno.php');
+
+
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+        if (isset($_POST['Entrar'])) {
+
+            $sessao = new ControleSessao();
+            ControleSessao::login($_POST['email'], $_POST['password']);
+            if($_SESSION['professor']) {
+                echo "Login bem-sucedido. Você pode redirecionar para a página desejada.";
+            } else {
+                echo "Login falhou. Verifique suas credenciais.";
+            }
+        }
+
+
+        
+        /*
         // Conecte-se ao banco de dados (substitua as informações de conexão)
         $host = "seu_host";
         $username = "seu_usuario";
@@ -49,7 +59,6 @@
 
         // Feche a conexão com o banco de dados
         $connection->close();
+        */
     }
     ?>
-</body>
-</html>

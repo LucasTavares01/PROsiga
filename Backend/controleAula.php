@@ -1,6 +1,6 @@
 <?php
-require("bancoDeDados.php");
-require("aula.php");
+//require("bancoDeDados.php");
+//require("aula.php");
 
 class ControleAula {
 

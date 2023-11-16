@@ -1,13 +1,13 @@
 <?php
 require("bancoDeDados.php");
-require("professor.php");
+//require("professor.php");
 
 class ControleProfessor {
 
     public static function buscarProfessor($email, $senha) {
         $professor = null;
         $bd = BancoDeDados::obterInstancia();
-        $resultados = $bd->consultar("SELECT * FROM PROFESSOR WHERE EMAIL = $email AND SENHA = $senha");
+        $resultados = $bd->consultar("SELECT * FROM PROFESSOR WHERE EMAIL = '$email' AND SENHA = '$senha'");
         foreach ($resultados as $resultado) {
             $professor = new Professor($resultado['ID_PROF'],
             $resultado['NOME'],

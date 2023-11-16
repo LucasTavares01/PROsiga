@@ -6,10 +6,10 @@ class BancoDeDados
     private static $instancia;
 
     // Configurações do banco de dados
-    private $host = "seu_host";
-    private $usuario = "seu_usuario";
-    private $senha = "sua_senha";
-    private $nomeBanco = "seu_banco";
+    private $host = "localhost";
+    private $usuario = "websiga";
+    private $senha = "aluno1232023";
+    private $nomeBanco = "ESCOLA";
 
     // Conexão com o banco de dados
     private $conexao;

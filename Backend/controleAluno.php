@@ -1,11 +1,12 @@
 <?php
-require("bancoDeDados.php");
+//require("bancoDeDados.php");
 class ControleAluno {
 
     public static function buscarAluno($id_aluno) {
         $aluno = null;
         $bd = BancoDeDados::obterInstancia();
-        $resultados = $bd->consultar("SELECT ALUNO.ID_ALUNO, MATRICULA.ID_MATR, ALUNO.RA, ALUNO.NOME, ALUNO.IMG FROM ALUNO INNER JOIN MATRICULA ON MATRICULA.ID_ALUNO = ALUNO.ID_ALUNO WHERE ALUNO.ID_ALUNO = $id_aluno AND MATRICULA.COD_MAT = $SESSION['materia']");
+        $cod_mat = $_SESSION['materia']->cod_materia;
+        $resultados = $bd->consultar("SELECT ALUNO.ID_ALUNO, MATRICULA.ID_MATR, ALUNO.RA, ALUNO.NOME, ALUNO.IMG FROM ALUNO INNER JOIN MATRICULA ON MATRICULA.ID_ALUNO = ALUNO.ID_ALUNO WHERE ALUNO.ID_ALUNO = $id_aluno AND MATRICULA.COD_MAT = $cod_mat");
         foreach ($resultados as $resultado) {
             $aluno = new Aluno($resultado['ALUNO.ID_ALUNO'],
             $resultado['MATRICULA.ID_MATR'],

@@ -1,8 +1,8 @@
 <?php
-require("bancoDeDados.php");
-require("presenca.php");
-require("aluno.php");
-require("controleAluno.php");
+//require("bancoDeDados.php");
+//require("presenca.php");
+//require("aluno.php");
+//require("controleAluno.php");
 
 class ControlePresenca {
 
@@ -14,7 +14,9 @@ class ControlePresenca {
         if($resultados) {
             foreach ($resultados as $resultado) {
                 $aluno = null;
-                $buscas = $bd->consultar("SELECT ID_ALUNO FROM MATRICULA WHERE ID_MATR = $resultado['ID_MATR']");
+                $buscas = [];
+                $id_mat = $resultado['ID_MATR'];
+                $buscas = $bd->consultar("SELECT ID_ALUNO FROM MATRICULA WHERE ID_MATR = $id_mat");
                 foreach ($buscas as $busca) {
                     $aluno = ControleAluno::buscarAluno($busca['ID_ALUNO']);
                     break;
@@ -54,7 +56,8 @@ class ControlePresenca {
         }
         $bd = BancoDeDados::obterInstancia();
         $dados = ["STATUS" => "REALIZADA"];
-        $bd->atualizar("AULA", $dados, "ID_AULA = $SESSION['aula']");
+        $aula = $_SESSION['aula'];
+        $bd->atualizar("AULA", $dados, "ID_AULA = $aula");
     }
 
     private static function salvarPresenca($presenca) {
