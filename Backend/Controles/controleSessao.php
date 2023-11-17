@@ -1,5 +1,18 @@
 <?php
 
+require('controleProfessor.php');
+require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/Modelos/professor.php');
+require('controleMateria.php');
+require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/Modelos/materia.php');
+require('controleAula.php');
+require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/Modelos/aula.php');
+require('controlePresenca.php');
+require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/Modelos/presenca.php');
+require('controleAluno.php');
+require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/Modelos/aluno.php');
+require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Banco de Dados/bancoDeDados.php');
+
+
 class ControleSessao {
 
     public static $professor;
@@ -12,7 +25,6 @@ class ControleSessao {
     public function __construct() {
         session_start();
         ControleSessao::limpar();
-
     }
 
     public static function limpar() {
@@ -37,11 +49,7 @@ class ControleSessao {
         if($professor) {
             $materias = ControleMateria::buscarMaterias($professor->id_prof);
             $_SESSION['materias'] = $materias;
-            //ir para pagina Materias
-        } else {
-            //Mensagem de erro
-        }
-        
+        }    
     }
 
     public static function selecionarMateria($Materia) {      
@@ -52,22 +60,55 @@ class ControleSessao {
         $_SESSION['aula'] = $aula;
         $presencas = [];
         $_SESSION['presencas'] = $presencas;
-        //Ir para pagina Aulas
     }
 
     public static function selecionarAula($Aula) {
         $_SESSION['aula']=$Aula;
         $presencas = ControlePresenca::buscarPresencas($Aula->id_aula);
         $_SESSION['presencas'] = $presencas;
-        //Ir para a pagina Chamada
     }
     
     public static function salvarChamada() {
         $presencas = $_SESSION['presencas'];
         ControlePresenca::salvarPresencas($presencas);
-        //Ir para pagina Aulas
+        $presencas = [];
+        $_SESSION['presencas'] = $presencas;
+    } 
+
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    if (isset($_POST['Entrar'])) {
+
+        $sessao = new ControleSessao();
+        ControleSessao::login($_POST['email'], $_POST['password']);
+        if($_SESSION['professor']) {
+            //Login Bem sucedido
+            echo "Login bem-sucedido. Você pode redirecionar para a página desejada.";
+            //header("Location: materias.php");
+        } else {
+            //Erro no Login
+            echo "Login falhou. Verifique suas credenciais.";
+        }
     }
 
+    if (isset($_POST['EscolherMateria'])) {
 
+        ControleSessao::selecionarMateria($_POST['materia']);
+        header("Location: aulas.php");
+    }
+
+    if (isset($_POST['EscolherAula'])) {
+
+        ControleSessao::selecionarAula($_POST['aula']);
+        header("Location: chamada.php");
+    }
+
+    if (isset($_POST['SalvarChamada'])) {
+
+        ControleSessao::salvarChamada();
+        header("Location: aulas.php");
+    }
 }
 ?>

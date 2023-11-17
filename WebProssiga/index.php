@@ -1,5 +1,5 @@
 <?php
-    require("login.php");
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/Controles/controleSessao.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

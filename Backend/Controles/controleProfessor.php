@@ -1,7 +1,4 @@
 <?php
-require("bancoDeDados.php");
-//require("professor.php");
-
 class ControleProfessor {
 
     public static function buscarProfessor($email, $senha) {

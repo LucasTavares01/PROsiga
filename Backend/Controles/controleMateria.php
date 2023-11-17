@@ -1,5 +1,5 @@
 <?php
-//require("bancoDeDados.php");
+
 class ControleMateria {
 
     public static function buscarMaterias($id_prof) {
