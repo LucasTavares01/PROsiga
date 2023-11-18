@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* aqui em baixo está o background da página de login */
+
+.fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -2;
+    background-color: #333;
+}
+
+.fundo .esquerda,
+.fundo .centro,
+.fundo .direita {
+    width: calc((100% - 10px * 2) / 3); 
+    height: 100vh;
+    background-size: auto 100%;
+    filter: blur(3px);
+}
+
+.fundo .esquerda {
+    margin-right: 5px;
+    background: url('Imagens/Aluno.svg') center/cover no-repeat;
+}
+
+.fundo .centro {
+    margin: 0 5px;
+    background: url('Imagens/Professor.svg') center/cover no-repeat;
+}
+
+.fundo .direita {
+    margin-left: 5px;
+    background: url('Imagens/FatecPorta.svg') center/cover no-repeat;
+}
+
+.blur {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(113, 114, 115, .50);
+    z-index: -1;
+}
+
+/* Final do background */
+
+/* Aqui está a parte do formulário */
+
+.wrapper {
+    width: 400px;
+    background:rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 30px 40px;
+    z-index: 1;
+}
+
+.logo {
+    background: url('Imagens/LogoPROsiga.svg') center/contain no-repeat;
+    height: 52px;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    color: black;
+    text-align: center;
+    padding-top: 0;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+    border-radius: 40px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);    
+    font-size: 16px;
+    color: black;
+    padding: 20px 45px 20px 20px;
+    border-radius: 40px;
+}
+
+.input-box input::placeholder {
+    color: rgb(167,167,167);    
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper .lembrar-esqueceu {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px 10px;
+}
+
+.lembrar-esqueceu label input {
+    accent-color: #ffffff;
+    margin-right: 3px;
+}
+
+.lembrar-esqueceu a {
+    color: #000000;
+    text-decoration: none;    
+}
+
+.lembrar-esqueceu a:hover {
+    text-decoration: underline;    
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: rgb(255, 14, 14);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.wrapper .link-cadastro {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.link-cadastro p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-cadastro p a:hover {
+    text-decoration: underline;
+}
+
+/* Final do formulário */

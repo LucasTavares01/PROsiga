@@ -74,41 +74,5 @@ class ControleSessao {
         $presencas = [];
         $_SESSION['presencas'] = $presencas;
     } 
-
-}
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    if (isset($_POST['Entrar'])) {
-
-        $sessao = new ControleSessao();
-        ControleSessao::login($_POST['email'], $_POST['password']);
-        if($_SESSION['professor']) {
-            //Login Bem sucedido
-            echo "Login bem-sucedido. Você pode redirecionar para a página desejada.";
-            //header("Location: materias.php");
-        } else {
-            //Erro no Login
-            echo "Login falhou. Verifique suas credenciais.";
-        }
-    }
-
-    if (isset($_POST['EscolherMateria'])) {
-
-        ControleSessao::selecionarMateria($_POST['materia']);
-        header("Location: aulas.php");
-    }
-
-    if (isset($_POST['EscolherAula'])) {
-
-        ControleSessao::selecionarAula($_POST['aula']);
-        header("Location: chamada.php");
-    }
-
-    if (isset($_POST['SalvarChamada'])) {
-
-        ControleSessao::salvarChamada();
-        header("Location: aulas.php");
-    }
 }
 ?>
