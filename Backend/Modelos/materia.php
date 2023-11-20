@@ -6,6 +6,7 @@ class Materia {
     public $ano_sem;
     public $id_prof;
     public $icone;
+
     public function __construct($cod_materia, $nome, $ano_sem, $id_prof, $icone) {
         $this->cod_materia = $cod_materia;
         $this->nome = $nome;
