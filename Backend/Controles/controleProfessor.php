@@ -9,7 +9,8 @@ class ControleProfessor {
             $professor = new Professor($resultado['ID_PROF'],
             $resultado['NOME'],
             $resultado['EMAIL'],
-            $resultado['SENHA']);
+            $resultado['SENHA'],
+            $resultado['IMAGEM']);
             break;
         }
         return $professor;
