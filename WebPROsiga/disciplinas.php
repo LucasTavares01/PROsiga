@@ -40,18 +40,20 @@
             <div class="caixafundomain">
                 <h2>Lista de Disciplinas</h2>
                 <table>
+                    <tr>
+                        <th>Icone</th>
+                        <th>Nome</th>
+                    </tr>
+                    <tr>
                     <?php
                     $materias = $_SESSION['materias'];
                     foreach($materias as $materia) {
                         echo "<tr>";
+                        echo "<td> $materia->icone </td>";
                         echo "<td> $materia->nome </td>";
                         echo "</tr>";
                     }
                     ?>
-                    
-                    <tbody>
-                        
-                    </tbody>
                 </table>
             </div>
         </main>
