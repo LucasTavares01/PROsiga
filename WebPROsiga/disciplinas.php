@@ -21,8 +21,7 @@
         <?php
         $professor = $_SESSION['professor'];        
         echo "<h1> $professor->nome </h1>"; //NOME DO PROFESSOR AQUI
-        ?>     
-                       
+        ?>                       
     </header>
 
     <div class="uniaoasidemain">
@@ -35,36 +34,30 @@
                 </ul>
             </nav>  
         </aside>
-
         <main>
             <div class="caixafundomain">
                 <h2>Lista de Disciplinas</h2>
-                <table>
-                    <tr>
-                        <th>Icone</th>
-                        <th>Nome</th>
-                    </tr>
+                <table id="minhaTabela">
                     <tr>
                     <?php
                     $materias = $_SESSION['materias'];
                     foreach($materias as $materia) {
                         echo "<tr>";
-                        echo "<td> $materia->icone </td>";
-                        echo "<td> $materia->nome </td>";
+                        echo "<td class='editarcolunaicone'><a href='#'>$materia->icone</a></td>";
+                        echo "<td class='editarcolunanome'><a href='#'>$materia->nome</a></td>";
                         echo "</tr>";
                     }
                     ?>
+                    </tr>
                 </table>
             </div>
         </main>
     </div>
-
     <footer>
         <div class="caixalogo">
         <div class="logocentropaula"></div>
         <div class="logogovernosp"></div>
         </div>
     </footer>
-
 </body>
 </html>

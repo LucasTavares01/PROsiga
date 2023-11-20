@@ -32,9 +32,6 @@
     margin: 100px;
 }
 
-/* Restante do seu CSS permanece inalterado */
-
-
 header {
     width: 100%;
     height: 75px;
@@ -137,33 +134,49 @@ main {
 .caixafundomain table {
     position: relative;
     margin: 120px 0 0 10px ;
-    width: 100%;
+    width: 700px;
     height: 30px;
     border-collapse: collapse; /* Une as bordas das células */
     border: 2px solid #000; /* Define uma borda para a tabela */
 }
 
-.caixafundomain th,
+#minhaTabela tr:hover {
+    background-color: rgba(255, 0, 0, 0.5); /* Altere para a cor desejada */
+    cursor: pointer; /* Altere o cursor para indicar que é clicável */
+}
+
+a {
+    color: inherit;
+  text-decoration: none;
+}
+
 .caixafundomain td {
     padding: 10px;
-    border: 1px solid #000; /* Borda para as células */
+    border: 2px solid #000; /* Borda para as células */
+    border-bottom: 4px solid #000000;
 }
 
-.caixafundomain thead {
-    background-color: #f2f2f2; /* Cor de fundo do cabeçalho da tabela */
+.caixafundomain .editarcolunaicone{
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
 }
 
-.caixafundomain th {
-    font-weight: bold; /* Deixa o texto do cabeçalho em negrito */
-    text-align: center; /* Alinha o texto do cabeçalho à esquerda */
+.caixafundomain .editarcolunanome{
+    color: #000;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
-.caixafundomain tbody tr:nth-child(even) {
-    background-color: #e9e9e9; /* Cor de fundo para linhas pares */
-}
+/* .caixafundomain tbody tr:nth-child(even) {
+    background-color: #e9e9e9;
+}*/
 
 
 footer {
+    position: fixed;
     width: 100%;
     height: 60px;
     flex-shrink: 0;
