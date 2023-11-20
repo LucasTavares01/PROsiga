@@ -10,7 +10,7 @@
             if($_SESSION['professor']) {
                 //Login Bem sucedido
                 echo "Login bem-sucedido. Você pode redirecionar para a página desejada.";
-                header("Location: materias.php");
+                header("Location: disciplinas.html");
             } else {
                 //Erro no Login
                 echo "Login falhou. Verifique suas credenciais.";
@@ -43,7 +43,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylelogin.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
