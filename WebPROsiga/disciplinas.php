@@ -60,4 +60,29 @@
         </div>
     </footer>
 </body>
+
 </html>
+
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+    
+    if (isset($_POST['EscolherMateria'])) {
+        $materias = $_SESSION['materias'];
+        $escolhida = null;
+        foreach($materias as $materia) {
+            if($materia->id == $_POST['id']) {
+                $escolhida = $materia;
+                break;
+            }
+        }
+        if($escolhida) {
+            ControleSessao::selecionarMateria($escolhida);
+            //header("Location: aulas.php");
+        }
+        
+    }
+}
+
+?>
