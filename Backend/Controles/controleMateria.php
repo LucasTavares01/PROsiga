@@ -11,7 +11,8 @@ class ControleMateria {
             $materia = new Materia($resultado['COD_MAT'],
             $resultado['NOME'],
             $resultado['ANO_SEM'],
-            $resultado['ID_PROF']);
+            $resultado['ID_PROF'],
+            $resultado['ICONE']);
             $materias[] = $materia;
         }
         return $materias;

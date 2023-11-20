@@ -1,3 +1,8 @@
+<?php
+    require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/Controles/controleSessao.php');
+    session_start();
+?> 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,7 +18,11 @@
     </div>
     
     <header>
-        <h1>Lucas Felipe Campos Tavares da Silva</h1>
+        <?php
+        $professor = $_SESSION['professor'];        
+        echo "<h1> $professor->nome </h1>"; //NOME DO PROFESSOR AQUI
+        ?>     
+                       
     </header>
 
     <div class="uniaoasidemain">
@@ -30,6 +39,20 @@
         <main>
             <div class="caixafundomain">
                 <h2>Lista de Disciplinas</h2>
+                <table>
+                    <?php
+                    $materias = $_SESSION['materias'];
+                    foreach($materias as $materia) {
+                        echo "<tr>";
+                        echo "<td> $materia->nome </td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                    
+                    <tbody>
+                        
+                    </tbody>
+                </table>
             </div>
         </main>
     </div>

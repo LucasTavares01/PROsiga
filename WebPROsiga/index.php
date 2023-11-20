@@ -54,8 +54,9 @@
             ControleSessao::login($_POST['email'], $_POST['password']);
             if($_SESSION['professor']) {
                 //Login Bem sucedido
-                echo "Login bem-sucedido. Você pode redirecionar para a página desejada.";
-                header("Location: disciplinas.html");
+                // echo "Login bem-sucedido. Você pode redirecionar para a página desejada.";
+                header("Location: disciplinas.php");
+                
             } else {
                 //Erro no Login
                 echo "Login falhou. Verifique suas credenciais.";

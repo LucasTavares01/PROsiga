@@ -5,8 +5,6 @@
     font-family: "Poppins", sans-serif;
 }
 
-/* Estilos para exemplo, você pode adicionar mais estilos conforme necessário */
-
 .avatar-container {
     display: flex;
     height: 100%;
@@ -80,7 +78,7 @@ aside {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Sombra do texto */
     font-size: 20px; /* Tamanho da fonte */
 
-    margin-top: 2PX;
+    margin-top: 2px;
     display: inline-block;
     width: 100%; /* Largura igual à do aside */
     padding: 20px 60px; /* Espaçamento interno */
@@ -102,7 +100,7 @@ aside {
 }
 
 .disciplina {
-    margin-top: 100PX;
+    margin-top: 100px;
     background-image: url('Imagens/Disciplinas.svg');
 }
 
@@ -127,13 +125,42 @@ main {
 }
 
 .caixafundomain h2 {
-    margin: 67px 0 0 50px ;
+    position: absolute;
+    margin: 67px 0 0 10px ;
     color: #000;
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
+
+.caixafundomain table {
+    position: relative;
+    margin: 120px 0 0 10px ;
+    width: 100%;
+    border-collapse: collapse; /* Une as bordas das células */
+    border: 2px solid #000; /* Define uma borda para a tabela */
+}
+
+.caixafundomain th,
+.caixafundomain td {
+    padding: 10px; /* Espaçamento interno das células */
+    border: 1px solid #000; /* Borda para as células */
+}
+
+.caixafundomain thead {
+    background-color: #f2f2f2; /* Cor de fundo do cabeçalho da tabela */
+}
+
+.caixafundomain th {
+    font-weight: bold; /* Deixa o texto do cabeçalho em negrito */
+    text-align: left; /* Alinha o texto do cabeçalho à esquerda */
+}
+
+.caixafundomain tbody tr:nth-child(even) {
+    background-color: #e9e9e9; /* Cor de fundo para linhas pares */
+}
+
 
 footer {
     width: 100%;
@@ -153,7 +180,7 @@ footer .caixalogo {
 
     width: 220px;
     height: 30;
-    margin-top: 60px - 30px;
+    margin-top: 6px;
     background: url('Imagens/LogoCentoPaula.svg') center/contain no-repeat;
 }
 
@@ -161,7 +188,7 @@ footer .caixalogo {
 
     width: 220px;
     height: 30;
-    margin-top: 60px - 30px;
+    margin-top: 8px;
     margin-left: 30px;
     background: url('Imagens/LogoGovernoSP.svg') center/contain no-repeat;
 }
