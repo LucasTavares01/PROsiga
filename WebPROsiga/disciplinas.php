@@ -38,7 +38,7 @@
         </aside>
 
         <main>
-            <form action="" method="post">
+            
                 <div class="caixafundomain">
                     <h2>Lista de Disciplinas</h2>
                     <table id="minhaTabela">
@@ -47,14 +47,17 @@
                         $materias = $_SESSION['materias'];
                         foreach($materias as $materia) {
                             echo "<tr>";
-                            echo "<button type='submit' name='EscolherMateria' cod=$materia->codmateria class='btn'>$materia->nome</button>";
+                                echo "<form action='' method='post'>";                            
+                                    echo "<input type='hidden' name='cod' value='$materia->cod_materia' />";
+                                    echo "<button type='submit' name='EscolherMateria' class='btn'>$materia->nome</button>";                            
+                                echo "</form>";
                             echo "</tr>";
                         }
                         ?>
                         </tr>
                     </table>
                 </div>
-            </form>
+            
         </main>        
     </div>
 
@@ -71,20 +74,18 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
-    
     if (isset($_POST['EscolherMateria'])) {
+        $materias = [];
         $materias = $_SESSION['materias'];
-        $escolhida = null;
+        $cod = $_POST['cod'];
+        $_SESSION['cod_mat'] = $cod;
         foreach($materias as $materia) {
-            if($materia->$cod_materia == $_POST['cod']) {
-                $escolhida = $materia;
+            if($materia->cod_materia == $cod) {
+                ControleSessao::selecionarMateria($materia);
+                header("Location: aulas.php");                
                 break;
             }
-        }
-        if($escolhida) {
-            ControleSessao::selecionarMateria($escolhida);
-            header("Location: index.php");
-        }        
+        }  
     }
 }
 ?>
