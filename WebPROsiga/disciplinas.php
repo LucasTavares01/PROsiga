@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $materias = $_SESSION['materias'];
         $escolhida = null;
         foreach($materias as $materia) {
-            if($materia->id == $_POST['id']) {
+            if($materia->$cod_materia == $_POST['cod']) {
                 $escolhida = $materia;
                 break;
             }
