@@ -46,10 +46,8 @@
                         <?php
                         $materias = $_SESSION['materias'];
                         foreach($materias as $materia) {
-                            $id = $materia->cod_materia;
                             echo "<tr>";
-                            echo "<td class='editarcolunaicone' name='id'>$materia->icone</td>";
-                            echo "<td class='editarcolunanome'>$materia->nome</td>";
+                            echo "<button type='submit' name='EscolherMateria' cod=$materia->codmateria class='btn'>$materia->nome</button>";
                             echo "</tr>";
                         }
                         ?>
