@@ -38,26 +38,22 @@
         </aside>
 
         <main>
-            <form action="" method="post">
-                <div class="caixafundomain">
-                    <h2>Lista de Disciplinas</h2>
-                    <table id="minhaTabela">
-                        <tr>
-                        <?php
+            <div class="botaomateria"> 
+                <form action="" method="post">
+                    <?php
                         $materias = $_SESSION['materias'];
                         foreach($materias as $materia) {
                             $id = $materia->cod_materia;
-                            echo "<tr>";
-                            echo "<td class='editarcolunaicone' name='id'>$materia->icone</td>";
-                            echo "<td class='editarcolunanome'>$materia->nome</td>";
-                            echo "</tr>";
+                            echo "<button>
+                                    <div class='iconemateria'>  $materia->icone </div>
+                                    <div class='nomemateria'> $materia->nome </div>
+                            </button>";
                         }
-                        ?>
-                        </tr>
-                    </table>
-                </div>
-            </form>
-        </main>        
+                    ?>
+                </form>
+            </div>    
+        </main>      
+
     </div>
 
     <footer>
