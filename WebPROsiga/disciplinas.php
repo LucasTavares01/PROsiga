@@ -41,21 +41,23 @@
             
                 <div class="caixafundomain">
                     <h2>Lista de Disciplinas</h2>
-                    <table id="minhaTabela">
-                        <tr>
+
+                    <div class='caixabotao'>
                         <?php
                         $materias = $_SESSION['materias'];
                         foreach($materias as $materia) {
-                            echo "<tr>";
+
+                            
+
                                 echo "<form action='' method='post'>";                            
                                     echo "<input type='hidden' name='cod' value='$materia->cod_materia' />";
-                                    echo "<button type='submit' name='EscolherMateria' class='btn'>$materia->nome</button>";                            
+                                    echo "<button type='submit' name='escolhermateria' class='escolhermateria'>$materia->nome</button>";                            
                                 echo "</form>";
-                            echo "</tr>";
+                            
+
                         }
                         ?>
-                        </tr>
-                    </table>
+                    </div>
                 </div>
             
         </main>        
@@ -74,7 +76,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
-    if (isset($_POST['EscolherMateria'])) {
+    if (isset($_POST['escolhermateria'])) {
         $materias = [];
         $materias = $_SESSION['materias'];
         $cod = $_POST['cod'];

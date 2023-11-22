@@ -119,11 +119,12 @@ main {
     height: 100%;
     position: relative;
     background: url('Imagens/LogoFatecFundo.svg') center no-repeat;
+    border: 2px solid #000;
 }
 
 .caixafundomain h2 {
     position: absolute;
-    margin: 67px 0 0 10px ;
+    margin: 67px 0 0 10px;
     color: #000;
     font-size: 30px;
     font-style: normal;
@@ -131,79 +132,20 @@ main {
     line-height: normal;
 }
 
-.caixafundomain table {
-    position: relative;
-    margin: 120px 0 0 10px ;
-    width: 700px;
-    height: 30px;
-    border-collapse: collapse; /* Une as bordas das células */
-    border: 2px solid #000; /* Define uma borda para a tabela */
+.caixabotao {
+    
+    border: 2px solid  red;
 }
 
-#minhaTabela tr:hover {
-    background-color: rgba(255, 0, 0, 0.5); /* Altere para a cor desejada */
-    cursor: pointer; /* Altere o cursor para indicar que é clicável */
-}
-
-a {
-    color: inherit;
-  text-decoration: none;
-}
-
-.caixafundomain td {
-    padding: 10px;
-    border: 2px solid #000; /* Borda para as células */
-    border-bottom: 4px solid #000000;
-}
-
-.caixafundomain .editarcolunaicone{
-    width: 100px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.caixafundomain .editarcolunanome{
-    color: #000;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+.escolhermateria {
+    width: 100%;
+    height: 100%;
+    background-color: red;
 }
 
 /* .caixafundomain tbody tr:nth-child(even) {
     background-color: #e9e9e9;
 }*/
-
-
-/* Estilos para os botões */
-.botaomateria {
-    margin-top: 150px;
-}
-
-.iconemateria {
-    /* Defina a largura desejada para a imagem */
-    width: 100px; /* Largura desejada */
-    /* Outros estilos, se necessário */
-    display: inline-block; /* Exibir elementos em linha */
-    vertical-align: middle; /* Alinhar verticalmente */
-}
-
-/* Estilos para o texto/nome da matéria */
-.nomemateria {
-    /* Adicione estilos para o nome da matéria, se necessário */
-    display: inline-block; /* Exibir elementos em linha */
-    vertical-align: middle; /* Alinhar verticalmente */
-    margin-left: 10px; /* Espaçamento entre a imagem e o nome */
-}
-
-/* Estilos para o botão (opcional) */
-.botaomateria button {
-    /* Adicione estilos para o botão, se necessário */
-}
-
-
-
-
 
 footer {
     position: fixed;
