@@ -73,6 +73,9 @@ class ControleSessao {
         ControlePresenca::salvarPresencas($presencas);
         $presencas = [];
         $_SESSION['presencas'] = $presencas;
+        $_SESSION['aula']->status = "REALIZADA";
+        ControleAula::salvarAula($_SESSION['aula']);
+        ControleSessao::selecionarMateria($_SESSION['mateira']);
     } 
 }
 ?>
