@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Disciplinas</title>
-    <link rel="stylesheet" href="styleprincipal.css">
+    <link rel="stylesheet" href="styleaulas.css">
 </head>
 
 <body>
@@ -52,17 +52,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </ul>
             </nav>
         </aside>
-
+<!---------------------------------------------------------------------------------------------------MAIN---------------------------------------->
         <main>
             <h2>AULAS</h2>
-            <div class="nomemateria">
-                <?php
+            <div class="cabecalhomateria">
+                <?php                
                 $materia = $_SESSION['materia'];
-                echo"<h3>'$materia->nome'</>";
+                $imagemCodificada = base64_encode($materia->icone);
+                echo "<img class='icone' src='data:image/svg+xml;base64,$imagemCodificada' />";
+                echo"<span class='nomemateria'>$materia->nome</span>";
                 ?>
+            </div>
+
+            <div class="cabecalhoitens">
+                <p>DATA<p>
+                <p>NOME<p>
+                <p>CONCLUÍDA<p>
+            </div>
+                
 
 
-                <div class='caixabotao'>
+                <div class='caixabotaoaulas'>
                     <?php
                     $materias = $_SESSION['materias'];
                     foreach ($materias as $materia) {

@@ -125,10 +125,29 @@ main {
     background: url('Imagens/LogoFatecFundo.svg') center no-repeat;
 }
 
-h2 { /*Lista de disciplinas*/
+h2 { /*AULAS*/
+    
     width: fit-content;
-    margin: 60px 40px 10px; /*cima, esquerda, baixo*/
+    margin: 50px 50% 10px; /*cima, esquerda, baixo*/
     border: 1px solid black;
+    
+}
+
+.cabecalhoitens {
+    border: 1px solid blue;
+    justify-content: center;
+    text-align: center;
+    width: 70%;
+}
+
+.cabecalhoitens p {
+    display: inline-block;
+
+}
+
+.DATA{
+    text-align: left;
+
 }
 
 .caixabotao {
