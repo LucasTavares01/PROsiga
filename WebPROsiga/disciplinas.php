@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Disciplinas</title>
-    <link rel="stylesheet" href="styleprincipal.css">
+    <link rel="stylesheet" href="styledisciplinas.css">
 </head>
 
 <body>
