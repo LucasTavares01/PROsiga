@@ -6,56 +6,46 @@
     <title>Document</title>
 </head>
 <body>
-    <main>
-        <div class="caixafundomain">
-            <h2>Lista de Disciplinas</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>Ano/Semestre</th>
-                        <th>teste</th>
-                        <!-- Adicione mais colunas conforme necessário -->
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                </tbody>
-            </table>
-        </div>
-    </main>
+    <div class="exemplo">
+        <div class="exemplo2"></div>
+    </div>
+<style>
+/* Estilizando a div */
+.cabecalhomateria {
+    display: flex;
+    width: 300px;
+    height: 30px;
+    position: relative;  
+}
 
-    <style>
-
-.caixafundomain table {
+.fundocabecalhomateria {
     width: 100%;
-    border-collapse: collapse; /* Une as bordas das células */
-    border: 2px solid #000; /* Define uma borda para a tabela */
-    margin-top: 20px; /* Espaço acima da tabela */
+    margin: 5px 0 2px 2px ; /*cima, direita, baixo, esquerda*/
+    background: #D9D9D9;
 }
 
-.caixafundomain th,
-.caixafundomain td {
-    padding: 10px; /* Espaçamento interno das células */
-    border: 1px solid #000; /* Borda para as células */
+/* Pseudo-elemento para a borda lateral deslocada para a direita */
+.cabecalhomateria::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px; /* Deslocamento para a direita */
+    height: 100%;
+    width: 1px;
+    border-left: 1px solid #000; /* Borda lateral esquerda deslocada */
 }
 
-.caixafundomain thead {
-    background-color: #f2f2f2; /* Cor de fundo do cabeçalho da tabela */
+/* Pseudo-elemento para a borda inferior deslocada para cima */
+.cabecalhomateria::after {
+    content: '';
+    position: absolute;
+    bottom: 5px; /* Deslocamento para cima */
+    left: 0;
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid #000; /* Borda inferior deslocada */
 }
 
-.caixafundomain th {
-    font-weight: bold; /* Deixa o texto do cabeçalho em negrito */
-    text-align: left; /* Alinha o texto do cabeçalho à esquerda */
-}
-
-.caixafundomain tbody tr:nth-child(even) {
-    background-color: #e9e9e9; /* Cor de fundo para linhas pares */
-}
-
-
-    </style>
-
+</style>
 </body>
 </html>

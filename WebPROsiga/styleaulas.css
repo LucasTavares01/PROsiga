@@ -117,7 +117,9 @@ aside {
 }
 /*------------------------------------------------------------------------------------------------------MAIN-----------------------------------------------*/
 main {
-    position: inherit;
+    position: relative;
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 100hv;
     margin: 15px 0 0 10px;
@@ -126,77 +128,159 @@ main {
 }
 
 h2 { /*AULAS*/
-    
+    position: absolute;
     width: fit-content;
-    margin: 50px 50% 10px; /*cima, esquerda, baixo*/
-    border: 1px solid black;
-    
-}
-
-.cabecalhoitens {
+    margin-top: 50px; /*cima, esquerda, baixo*/
     border: 1px solid blue;
-    justify-content: center;
-    text-align: center;
-    width: 70%;
+    
+}
+/*-----------------------------------------------------------------------------------------------CABEÇALHO MATERIA----------------------------------------*/
+.cabecalhomateria {
+    position: absolute;
+    display: flex;
+    top: 100px;
+    width: 90%;
+    height: 50px;
+
+    overflow: hidden;  
 }
 
-.cabecalhoitens p {
-    display: inline-block;
-
+.cabecalhomateria::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 35px; /* Deslocamento para a direita */
+    height: 100%;
+    width: 1px;
+    border-left: 1px solid #000; /* Borda lateral esquerda deslocada */
 }
 
-.DATA{
-    text-align: left;
-
-}
-
-.caixabotao {
-    width: fit-content;
-    height: fit-content;
-    margin-left: 40px;
-   
-}
-
-.botaomateria {
-    display: flex;    
+.cabecalhomateria::after {
+    content: '';
+    position: absolute;
+    bottom: 5px; /* Deslocamento para cima */
+    left: 0;
+    height: 1px;
     width: 100%;
-    height: fit-content;
-    align-items: center;
-    background-color: transparent;
-    border: 2px solid black;
-    margin-bottom: 5px;    
+    border-bottom: 1px solid #000; /* Borda inferior deslocada */
 }
 
-
-.botaomateria:hover {
-    background-color: rgba(255, 0, 0, 0.5);
+.fundocabecalhomateria {
+    position: static ;
+    width: 100%;
+    margin: 5px 0 2px 2px ; /*cima, direita, baixo, esquerda*/
+    background: #D9D9D9;
 }
 
-.botaomateria:hover .icone{
-    background-color: transparent;
+.cabecalhomateria .icone {
+    position: absolute;
+    margin: 12px 0 0 10px;
+    height: 30px;
+    width: 17px;
 }
 
-.botaomateria .icone {
-    width: 90px; 
-    height: 90px;
-    background-color: #D9D9D9;
-    border-right: 2px solid black;
-    padding: 5px;
-}
-
-.botaomateria .nomebotao {
+.cabecalhomateria .nomemateria {
+    position: absolute;
+    top: 10px; /* Posiciona o elemento no meio verticalmente */
+    left: 40px; /* Posiciona o elemento no meio horizontalmente */
     color: #000;
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    padding: 15px;
-    
+}
+/*-----------------------------------------------------------------------------------------------CABEÇALHO ITENS----------------------------------------*/
+.cabecalhoitens {
+    position: absolute;
+    top: 150px;
+    width: 90%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
-/* .caixafundomain tbody tr:nth-child(even) {
-    background-color: #e9e9e9;
-}*/
+.cabecalhoitens p {
+    margin: 0;
+}
+
+.data {
+    text-align: left;
+    padding-left: 45px;
+    flex: 1;
+}
+
+.nome {
+    text-align: center;
+    padding-right: 700px;
+    flex: 1;
+}
+
+.concluida {
+    text-align: right;
+    padding-right: 20px;
+    flex: 1;
+}
+/*-----------------------------------------------------------------------------------------------------BOTÕES-------------------------------------------*/
+.caixabotaoaulas {
+    position: absolute;
+    width: 90%;
+    height: fit-content; 
+    top: 185px;
+}
+
+.botaoaula {
+    display: flex;   
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.botaoaula:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.botaoaula .datab,
+.botaoaula .nomeb,
+.botaoaula .concluidab {    
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.botaoaula .datab {
+    width: 110px;
+    height: fit-content;
+    border: 1px solid green;
+    margin-left: calc(45px - (100px / 2) / 2);
+
+}
+
+.botaoaula .nomeb {
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid green;
+    margin-left: 0;
+}
+
+.botaoaula .concluidab {
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid green;
+    margin-left: 0;
+}
+
+
+
 /*----------------------------------------------------------------------------------------FOOTER--------------------------------------------------------------------------------*/
 footer {
     position: static;
