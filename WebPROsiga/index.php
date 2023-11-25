@@ -63,23 +63,23 @@
             }
         }
         
-        if (isset($_POST['EscolherMateria'])) {
+        // if (isset($_POST['EscolherMateria'])) {
         
-            ControleSessao::selecionarMateria($_POST['materia']);
-            header("Location: aulas.php");
-        }
+        //     ControleSessao::selecionarMateria($_POST['materia']);
+        //     header("Location: aulas.php");
+        // }
         
-        if (isset($_POST['EscolherAula'])) {
+        // if (isset($_POST['EscolherAula'])) {
         
-            ControleSessao::selecionarAula($_POST['aula']);
-            header("Location: chamada.php");
-        }
+        //     ControleSessao::selecionarAula($_POST['aula']);
+        //     header("Location: chamada.php");
+        // }
         
-        if (isset($_POST['SalvarChamada'])) {
+        // if (isset($_POST['SalvarChamada'])) {
         
-            ControleSessao::salvarChamada();
-            header("Location: aulas.php");
-        }
+        //     ControleSessao::salvarChamada();
+        //     header("Location: aulas.php");
+        // }
     }
 ?>
 </body>

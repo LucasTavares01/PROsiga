@@ -123,6 +123,7 @@ main {
     margin: 15px 0 0 10px;
     border: 1px solid blue;
     background: url('Imagens/LogoFatecFundo.svg') center no-repeat;
+    overflow: auto;
 }
 
 h2 { /*Lista de disciplinas*/

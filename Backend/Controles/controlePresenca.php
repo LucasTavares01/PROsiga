@@ -30,7 +30,7 @@ class ControlePresenca {
                 $presencas[] = $presenca;
             }
         } else {
-            $presencas = criarPresencas($idAula);
+            $presencas = ControlePresenca::criarPresencas($idAula);
         }
 
         return $presencas;
@@ -52,7 +52,7 @@ class ControlePresenca {
 
     public static function salvarPresencas($presencas) {
         foreach ($presencas as $presenca) {
-            salvarPresenca($presenca);
+            ControlePresenca::salvarPresenca($presenca);
         }
         $bd = BancoDeDados::obterInstancia();
         $dados = ["STATUS" => "REALIZADA"];
