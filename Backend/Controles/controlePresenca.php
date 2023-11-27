@@ -2,12 +2,13 @@
 //require("bancoDeDados.php");
 //require("presenca.php");
 //require("aluno.php");
-//require("controleAluno.php");
+//require("controleSessao.php");
 
 class ControlePresenca {
 
     public static function buscarPresencas($idAula) {
         $presencas = [];
+        session_start();
         $bd = BancoDeDados::obterInstancia();
         $resultados = [];
         $resultados = $bd->consultar("SELECT * FROM PRESENCA WHERE ID_AULA = $idAula");
@@ -28,9 +29,11 @@ class ControlePresenca {
                 $resultado['PRESENCAS'],
                 $resultado['ID_PRESENCA']);
                 $presencas[] = $presenca;
+                $_SESSION['novas_pres'] = 2;
             }
         } else {
             $presencas = ControlePresenca::criarPresencas($idAula);
+            $_SESSION['novas_pres'] = 1;
         }
 
         return $presencas;
@@ -38,12 +41,13 @@ class ControlePresenca {
 
     private static function criarPresencas($idAula) {
         $presencas = [];
+        $aula = $_SESSION['aula'];
         $alunos = ControleAluno::buscarAlunos($idAula);
         foreach ($alunos as $aluno) {
             $presenca = new Presenca($idAula,
             $aluno->id_matr,
             $aluno,
-            null,
+            $aula->data,
             0);
             $presencas[] = $presenca;
         }

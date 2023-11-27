@@ -21,8 +21,10 @@ class ControleAluno {
 
     public static function buscarAlunos($idAula) {
         $alunos = [];
+        $resultados = [];
         $bd = BancoDeDados::obterInstancia();
         $resultados = $bd->consultar("SELECT ALUNO.ID_ALUNO, MATRICULA.ID_MATR, ALUNO.RA, ALUNO.NOME, ALUNO.IMG, ALUNO.STATUS FROM ALUNO INNER JOIN MATRICULA ON MATRICULA.ID_ALUNO = ALUNO.ID_ALUNO INNER JOIN AULA ON AULA.COD_MAT = MATRICULA.COD_MAT WHERE AULA.ID_AULA = $idAula ORDER BY ALUNO.NOME");
+        $_SESSION['n_alunos'] = count($resultados);
         foreach ($resultados as $resultado) {
             $aluno = new Aluno($resultado['ALUNO.ID_ALUNO'],
             $resultado['MATRICULA.ID_MATR'],
@@ -32,6 +34,7 @@ class ControleAluno {
             $resultado['ALUNO.STATUS']);
             $alunos[] = $aluno;
         }
+        
         return $alunos;
     }
 }

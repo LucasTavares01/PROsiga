@@ -40,6 +40,9 @@ class ControleSessao {
         $_SESSION['aulas'] = $aulas;
         $_SESSION['aula'] = $aula;
         $_SESSION['presencas'] = $presencas;
+        $_SESSION['n_alunos'] = 100;
+        $_SESSION['novas_pres'] = 0;
+        
     }
 
     public static function login($email, $senha) {
@@ -64,6 +67,7 @@ class ControleSessao {
 
     public static function selecionarAula($Aula) {
         $_SESSION['aula']=$Aula;
+        $_SESSION['novas_pres'] = 2;
         $presencas = ControlePresenca::buscarPresencas($Aula->id_aula);
         $_SESSION['presencas'] = $presencas;
     }

@@ -80,11 +80,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </thead>
                     <tbody>
                         <?php
-                        echo "<tr class='linha'>";
-                        echo "<td class='foto'><img src='caminho_para_a_imagem' alt='Imagem'></td>";
-                        echo "<td class='nomealuno'></td>";
-                        echo "<td class='status'></td>";
-                        echo "</tr>";
+                        $presencas = $_SESSION['presencas'];
+                        $n_alunos = $_SESSION['n_alunos'];
+                        $novas_pres = $_SESSION['novas_pres'];
+                        echo "novas_pres: $novas_pres / ";
+                        echo "numero: $n_alunos / ";  
+                        $n = count($presencas);
+                        echo "numero: $n";                      
+                        foreach($presencas as $presenca) {
+                            $aluno = $presenca->aluno;
+                            $nome = $aluno->nome;
+                            $img = base64_encode($aluno->img);
+                            
+                            echo "<tr class='linha'>";
+                            echo "<td class='foto'><img src='data:image/svg+xml;base64,$img' alt='Imagem'></td>";
+                            echo "<td class='nomealuno'>$nome</td>";
+                            echo "<td class='status'>";
+                            if($aluno->status == "PRESENTE") {
+                                echo "<input type='checkbox' id=$presenca->id_matricula name='presenca' checked/>";
+                            } else {
+                                echo "<input type='checkbox' id=$presenca->id_matricula name='presenca' />";
+                            }                            
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                        
                         ?>
                     </tbody>
                 </table>
