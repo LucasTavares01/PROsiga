@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30/11/2023 às 23:38
+-- Tempo de geração: 30/11/2023 às 23:53
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -67,7 +67,7 @@ CREATE TABLE `aula` (
 --
 
 INSERT INTO `aula` (`ID_AULA`, `COD_MAT`, `N_PRESENCAS`, `DATA`, `TITULO`, `COMENTARIO`, `STATUS`) VALUES
-(4, 1, 2, '2023-11-01', 'Fundamentos do Cálculo: Explorando Limites', 'Nesta aula introdutória, mergulharemos nos conceitos fundamentais de limites em cálculo, entendendo sua importância e aplicações em diversas áreas.', 'NAO REALIZADA'),
+(4, 1, 2, '2023-11-01', 'Fundamentos do Cálculo: Explorando Limites', 'Nesta aula introdutória, mergulharemos nos conceitos fundamentais de limites em cálculo, entendendo sua importância e aplicações em diversas áreas.', 'REALIZADA'),
 (5, 1, 2, '2023-11-03', 'Derivadas: A Arte de Encontrar Taxas de Variação', 'Explore o mundo das derivadas nesta aula, onde desvendaremos os segredos por trás do cálculo das taxas de variação e sua aplicação em problemas do mundo real.', 'NAO REALIZADA'),
 (6, 1, 2, '2023-11-08', 'Integrais Definidas: Calculando Áreas e Além', 'Aprofunde-se no universo das integrais definidas, aprendendo a calcular áreas sob curvas e explorando suas conexões com a acumulação de quantidades e a resolução de problemas práticos.', 'NAO REALIZADA'),
 (7, 2, 2, '2023-11-01', 'Introdução à Estatística: Explorando Dados e Tendências\"', 'Nesta aula inaugural, vamos mergulhar no universo da estatística, explorando a importância da análise de dados, medidas de centralidade e dispersão, e começando a identificar padrões e tendências.', 'NAO REALIZADA'),
@@ -151,6 +151,14 @@ CREATE TABLE `presenca` (
   `PRESENCAS` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Despejando dados para a tabela `presenca`
+--
+
+INSERT INTO `presenca` (`ID_PRESENCA`, `ID_AULA`, `ID_MATR`, `DATA`, `PRESENCAS`) VALUES
+(1, 4, 4, '2023-11-01', 0),
+(2, 4, 1, '2023-11-01', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -207,6 +215,12 @@ ALTER TABLE `matricula`
   ADD PRIMARY KEY (`ID_MATR`);
 
 --
+-- Índices de tabela `presenca`
+--
+ALTER TABLE `presenca`
+  ADD PRIMARY KEY (`ID_PRESENCA`);
+
+--
 -- Índices de tabela `professor`
 --
 ALTER TABLE `professor`
@@ -247,6 +261,12 @@ ALTER TABLE `matricula`
   MODIFY `ID_MATR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT de tabela `presenca`
+--
+ALTER TABLE `presenca`
+  MODIFY `ID_PRESENCA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de tabela `professor`
 --
 ALTER TABLE `professor`
@@ -256,3 +276,7 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+GRANT SELECT, INSERT, UPDATE, DELETE, FILE ON *.* TO `websiga`@`%` IDENTIFIED BY PASSWORD '*0792D93A6C08D3D449C80ACD394A2A123750A44A';
+
+GRANT ALL PRIVILEGES ON `escola`.* TO `websiga`@`%`;

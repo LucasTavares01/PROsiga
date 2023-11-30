@@ -43,7 +43,7 @@ class ControleSessao {
         $_SESSION['novas_pres'] = 10;
         $_SESSION['n_alunos'] = 10;
         $_SESSION['status'] = "inicio";
-        $_SESSION['resultado'] = [];
+        $_SESSION['resultado'] = "-";
         
     }
 

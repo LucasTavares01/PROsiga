@@ -93,6 +93,18 @@ class BancoDeDados
         return $resultado;
     }
 
+    public function executarQueryPublic($query)
+    {
+        $resultado = $this->conexao->query($query);
+
+        // Verificar erros na execução da query
+        if (!$resultado) {
+            die("Erro na execução da query: " . $this->conexao->error);
+        }
+
+        return $resultado;
+    }
+
     // Evitar a clonagem da instância
     private function __clone() {}
 

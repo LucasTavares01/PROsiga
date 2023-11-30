@@ -21,8 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
         //echo '<pre>' , var_dump($presencas) , '</pre>';
         //echo '<pre>' , var_dump($lista) , '</pre>';
-        //ControleSessao::salvarChamada($lista);
-        //header("Location: aulas.php");
+        ControleSessao::salvarChamada($lista);
+        header("Location: aulas.php");
         exit();
     }
 }
@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             echo "<td class='foto'><img src='data:image/svg+xml;base64,$img' alt='Imagem'></td>";
                             echo "<td class='nomealuno'>$nome</td>";
                             echo "<td class='status'>";                            
-                            if($aluno->status === "PRESENTE") {
+                            if(($aluno->status === "PRESENTE" && $aula->status === "NAO REALIZADA" )||($aula->status === "REALIZADA" && $presenca->presencas > 0)) {
                                 echo "<input type='checkbox' class = form id=$index name='presencas[]' checked/>";
                             } else {
                                 echo "<input type='checkbox' class = form id=$index name='presencas[]' />";

@@ -25,7 +25,7 @@ class ControleAula {
     public static function salvarAula($aula) {
         $bd = BancoDeDados::obterInstancia();
         $dados = ["N_PRESENCAS" => "$aula->n_presencas",
-        "DATA" => "$aula->id_data",
+        "DATA" => "$aula->data",
         "TITULO" => "$aula->titulo",
         "COMENTARIO" => "$aula->comentario",
         "STATUS" => "$aula->status"];

@@ -2,6 +2,8 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/PROsiga/Backend/Controles/controleSessao.php');
 session_start();
 
+
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST['botaoaula'])) {
         $aulas = $_SESSION['aulas'];
