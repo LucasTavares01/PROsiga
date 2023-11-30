@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/11/2023 às 20:24
+-- Tempo de geração: 30/11/2023 às 23:38
 -- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Versão do PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `aluno` (
   `ID_ALUNO` int(11) NOT NULL,
   `RA` int(11) NOT NULL,
   `NOME` varchar(150) NOT NULL,
-  `IMG` varchar(150) NOT NULL,
+  `IMG` blob NOT NULL,
   `STATUS` varchar(15) NOT NULL DEFAULT 'AUSENTE',
   `EMAIL` varchar(50) NOT NULL,
   `SENHA` varchar(30) NOT NULL
@@ -43,8 +43,8 @@ CREATE TABLE `aluno` (
 
 INSERT INTO `aluno` (`ID_ALUNO`, `RA`, `NOME`, `IMG`, `STATUS`, `EMAIL`, `SENHA`) VALUES
 (1, 5681, 'BELTRANO', '', 'AUSENTE', 'beltrano@email.com', '123'),
-(2, 9735, 'FULANO', '-', 'PRESENTE', 'fulano@email.com', '123'),
-(3, 18045, 'CICLANO', '-', 'AUSENTE', 'ciclano@email.com', '123');
+(2, 9735, 'FULANO', 0x2d, 'PRESENTE', 'fulano@email.com', '123'),
+(3, 18045, 'CICLANO', 0x2d, 'AUSENTE', 'ciclano@email.com', '123');
 
 -- --------------------------------------------------------
 

@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $lista = [];
         //$checkboxes = isset($_POST['checkbox']) ? $_POST['checkbox'] : array();
         foreach($presencas as $presenca) {
-            $check = $checkboxes[$index];
+            $check = $_POST['presencas'][$index];
             if($check === 'on') {
                 $presenca->presencas = 1;
             } else {
