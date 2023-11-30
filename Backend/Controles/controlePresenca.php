@@ -8,11 +8,12 @@ class ControlePresenca {
 
     public static function buscarPresencas($idAula) {
         $presencas = [];
-        session_start();
         $bd = BancoDeDados::obterInstancia();
         $resultados = [];
         $resultados = $bd->consultar("SELECT * FROM PRESENCA WHERE ID_AULA = $idAula");
-        if($resultados) {
+        ControleSessao::setResultado($resultados);
+        if($resultados->num_rows > 0) {
+            ControleSessao::setStatus("resultado encontrado");
             foreach ($resultados as $resultado) {
                 $aluno = null;
                 $buscas = [];
@@ -29,13 +30,12 @@ class ControlePresenca {
                 $resultado['PRESENCAS'],
                 $resultado['ID_PRESENCA']);
                 $presencas[] = $presenca;
-                $_SESSION['novas_pres'] = 2;
-            }
+            }            
         } else {
             $presencas = ControlePresenca::criarPresencas($idAula);
-            $_SESSION['novas_pres'] = 1;
+            ControleSessao::setStatus("nao encontrado");
         }
-
+        ControleSessao::registrarPresencas(count($presencas));
         return $presencas;
     }
 
@@ -43,6 +43,8 @@ class ControlePresenca {
         $presencas = [];
         $aula = $_SESSION['aula'];
         $alunos = ControleAluno::buscarAlunos($idAula);
+        ControleSessao::registrarAlunos(count($alunos));
+        ControleSessao::setResultado($alunos);
         foreach ($alunos as $aluno) {
             $presenca = new Presenca($idAula,
             $aluno->id_matr,
@@ -58,17 +60,19 @@ class ControlePresenca {
         foreach ($presencas as $presenca) {
             ControlePresenca::salvarPresenca($presenca);
         }
-        $bd = BancoDeDados::obterInstancia();
-        $dados = ["STATUS" => "REALIZADA"];
         $aula = $_SESSION['aula'];
-        $bd->atualizar("AULA", $dados, "ID_AULA = $aula");
+        $bd = BancoDeDados::obterInstancia();
+        $dados = ["STATUS" => "REALIZADA", "DATA" => "$aula->data"];        
+        $id_aula = $aula->id_aula;
+        $bd->atualizar("AULA", $dados, "ID_AULA = $id_aula");
     }
 
     private static function salvarPresenca($presenca) {
         $bd = BancoDeDados::obterInstancia();
         if($presenca->id_presenca === -1) {
             $dados = ["ID_AULA" => "$presenca->id_aula",
-            "ID_MATR" => "$presenca->id_matr",
+            "ID_MATR" => "$presenca->id_matricula",
+            "DATA" => "$presenca->data",
             "PRESENCAS" => "$presenca->presencas"];
             $bd->inserir("PRESENCA", $dados);
         } else {

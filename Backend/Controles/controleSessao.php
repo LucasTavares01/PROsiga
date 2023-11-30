@@ -40,8 +40,10 @@ class ControleSessao {
         $_SESSION['aulas'] = $aulas;
         $_SESSION['aula'] = $aula;
         $_SESSION['presencas'] = $presencas;
-        $_SESSION['n_alunos'] = 100;
-        $_SESSION['novas_pres'] = 0;
+        $_SESSION['novas_pres'] = 10;
+        $_SESSION['n_alunos'] = 10;
+        $_SESSION['status'] = "inicio";
+        $_SESSION['resultado'] = [];
         
     }
 
@@ -67,19 +69,30 @@ class ControleSessao {
 
     public static function selecionarAula($Aula) {
         $_SESSION['aula']=$Aula;
-        $_SESSION['novas_pres'] = 2;
         $presencas = ControlePresenca::buscarPresencas($Aula->id_aula);
         $_SESSION['presencas'] = $presencas;
     }
     
-    public static function salvarChamada() {
-        $presencas = $_SESSION['presencas'];
+    public static function salvarChamada($presencas) {
         ControlePresenca::salvarPresencas($presencas);
         $presencas = [];
         $_SESSION['presencas'] = $presencas;
         $_SESSION['aula']->status = "REALIZADA";
         ControleAula::salvarAula($_SESSION['aula']);
-        ControleSessao::selecionarMateria($_SESSION['mateira']);
+        ControleSessao::selecionarMateria($_SESSION['materia']);
     } 
+
+    public static function registrarAlunos($n_alunos){
+        $_SESSION['n_alunos'] = $n_alunos;
+    }
+    public static function registrarPresencas($n_pres){
+        $_SESSION['novas_pres'] = $n_pres;
+    }
+    public static function setStatus($status){
+        $_SESSION['status'] = $status;
+    }
+    public static function setResultado($res){
+        $_SESSION['resultado'] = $res;
+    }
 }
 ?>
