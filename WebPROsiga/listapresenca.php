@@ -115,10 +115,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             $img = base64_encode($aluno->img);
                             echo "<tr class='linha'>";
                             echo "<td class='foto'><img src='data:image/svg+xml;base64,$img' alt='Imagem'></td>";
-                            echo "<td class='nomealuno'>$nome</td>";
+                            if(($aluno->status === "PRESENTE" && $aula->status === "NAO REALIZADA" )||($aula->status === "REALIZADA" && $presenca->presencas > 0)) {
+                                echo "<td class='nomealuno'><b>$nome</b></td>";
+                            } else {
+                                echo "<td class='nomealuno'>$nome</td>";
+                            } 
+                            
                             echo "<td class='status'>";                            
                             if(($aluno->status === "PRESENTE" && $aula->status === "NAO REALIZADA" )||($aula->status === "REALIZADA" && $presenca->presencas > 0)) {
-                                echo "<input type='checkbox' class = form id=$index name='presencas[]' checked/>";
+                                echo "<b><input type='checkbox' class = form id=$index name='presencas[]' checked/></b>";
                             } else {
                                 echo "<input type='checkbox' class = form id=$index name='presencas[]' />";
                             }                         
