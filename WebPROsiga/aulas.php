@@ -2,8 +2,6 @@
 require($_SERVER['DOCUMENT_ROOT'] . '/PROsiga/Backend/Controles/controleSessao.php');
 session_start();
 
-
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST['botaoaula'])) {
         $aulas = $_SESSION['aulas'];
@@ -18,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -45,13 +42,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </header>
 
     <div class="uniaoasidemain">
-
+<!--------------------------------------------------------------------------------ASIDE---------------------------------------------------------------->
         <aside>
             <nav>
                 <ul>
-                    <li><a class="disciplina" href="#">DISCIPLINAS</a></li>
+                    <form action='' method='post'>
+                    <li><a class="disciplina" href="disciplinas.php">DISCIPLINAS</a></li>
                     <li><a class="materiais" href="#">MATERIAIS</a></li>
                     <li><a class="perfil" href="#">PERFIL</a></li>
+                    </form>
                 </ul>
             </nav>
         </aside>

@@ -46,9 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <aside>
             <nav>
                 <ul>
-                    <li><a class="disciplina" href="#">DISCIPLINAS</a></li>
+                    <form action='' method='post'>
+                    <li><a class="disciplina" href="disciplinas.php">DISCIPLINAS</a></li>
                     <li><a class="materiais" href="#">MATERIAIS</a></li>
                     <li><a class="perfil" href="#">PERFIL</a></li>
+                    </form>
                 </ul>
             </nav>
         </aside>

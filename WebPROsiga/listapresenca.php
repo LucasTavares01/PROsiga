@@ -53,13 +53,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </header>
 
     <div class="uniaoasidemain">
-
+<!--------------------------------------------------------------------------------ASIDE---------------------------------------------------------------->
         <aside>
             <nav>
                 <ul>
-                    <li><a class="disciplina" href="#">DISCIPLINAS</a></li>
+                    <form action='' method='post'>
+                    <li><a class="disciplina" href="disciplinas.php">DISCIPLINAS</a></li>
                     <li><a class="materiais" href="#">MATERIAIS</a></li>
                     <li><a class="perfil" href="#">PERFIL</a></li>
+                    </form>
                 </ul>
             </nav>
         </aside>
@@ -69,21 +71,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="cabecalhomateria">
                 <div class="fundocabecalhomateria"></div>
                 <?php
+                $aula = $_SESSION['aula'];
                 $materia = $_SESSION['materia'];
                 $imagemCodificada = base64_encode($materia->icone);
                 echo "<img class='icone' src='data:image/svg+xml;base64,$imagemCodificada' />";
-                echo "<span class='nomemateria'>$materia->nome - </span>";    
-                $aula = $_SESSION['aula'];
-                echo "<span class='dataaula'>Aula do dia $aula->data</span>";            
-                ?>
-                
+                echo "<span class='nomemateria'>$materia->nome - Aula do dia $aula->data </span>";             
+                ?>                
             </div>
 
             <div class='caixatabela'>
                 <table>
                     <thead>
                         <tr class=cabecalhotabela>
-                        <th class="col-imagem">Imagem</th>
+                        <th class="col-imagem"></th>
                         <th class="col-nome">Nome</th>
                         <th class="col-status">Status</th>
                         </tr>
@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             $nome = $aluno->nome;
                             $img = base64_encode($aluno->img);
                             echo "<tr class='linha'>";
-                            echo "<td class='foto'><img src='data:image/svg+xml;base64,$img' alt='Imagem'></td>";
+                            echo "<td class='foto'><img src='data:image/jpeg;base64,$img' class='editfoto' alt='Imagem'></td>";
                             if(($aluno->status === "PRESENTE" && $aula->status === "NAO REALIZADA" )||($aula->status === "REALIZADA" && $presenca->presencas > 0)) {
                                 echo "<td class='nomealuno'><b>$nome</b></td>";
                             } else {
@@ -123,25 +123,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             
                             echo "<td class='status'>";                            
                             if(($aluno->status === "PRESENTE" && $aula->status === "NAO REALIZADA" )||($aula->status === "REALIZADA" && $presenca->presencas > 0)) {
-                                echo "<b><input type='checkbox' class = form id=$index name='presencas[]' checked/></b>";
+                                echo "<b><input type='checkbox' class='checkbox'form id=$index name='presencas[]' checked/></b>";
                             } else {
-                                echo "<input type='checkbox' class = form id=$index name='presencas[]' />";
+                                echo "<input type='checkbox' class ='checkbox' id=$index name='presencas[]' />";
                             }                         
                             echo "</td>";
                             echo "</tr>";
                             $index++;
-                        }
-                        echo "<button type='submit' name='salvarChamada' class='salvarchamada'>Salvar Chamada</button>";
+                        }                        
+                        // echo "<button type='submit' name='salvarChamada' class='salvarchamada'>Salvar Chamada</button>";
                         echo "</form>";
-                        
                         ?>
                     </tbody>
-                </table>
+                </table>              
             </div>
 
+            </form>
+                    <form action='' method='post'>
+                    <button type='submit' name='salvarChamada' class='salvarchamada'>Salvar Chamada</button>
+            </form>
             
         </main>
-
+        
     </div>
 
     <footer>

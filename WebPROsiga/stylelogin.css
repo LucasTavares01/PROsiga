@@ -160,7 +160,7 @@ body {
 }
 
 .link-cadastro p a {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     font-weight: 600;
 }
@@ -168,5 +168,7 @@ body {
 .link-cadastro p a:hover {
     text-decoration: underline;
 }
+
+
 
 /* Final do formulário */
