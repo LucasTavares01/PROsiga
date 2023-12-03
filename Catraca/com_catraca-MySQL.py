@@ -2,14 +2,14 @@ import serial
 import mysql.connector
 
 # Configuração da porta serial
-porta_serial = serial.Serial('COM3', 9600)  # Substitua 'COMx' pela porta serial correta
+porta_serial = serial.Serial('COM5', 9600)  # Substitua 'COMx' pela porta serial correta
 porta_serial.timeout = 1
 
 # Configuração do banco de dados MySQL
 conexao_bd = mysql.connector.connect(
     host="localhost",
-    user="CATRACA",
-    password="123456",
+    user="websiga",
+    password="aluno1232023",
     database="ESCOLA"
 )
 cursor = conexao_bd.cursor()
