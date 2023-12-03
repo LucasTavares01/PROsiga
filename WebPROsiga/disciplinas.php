@@ -34,11 +34,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="imagemavatar"></div>
     </div>
 
-    <header>
-        <?php
-        $professor = $_SESSION['professor'];
-        echo "<h1> $professor->nome </h1>"; //NOME DO PROFESSOR AQUI
-        ?>
+<!--------------------------------------------------------------------------------HEADER---------------------------------------------------------------->
+<header>
+        <div class="nomeprofessor">
+            <?php
+            $professor = $_SESSION['professor'];
+            echo "<h1> $professor->nome </h1>"; //NOME DO PROFESSOR AQUI
+            ?>
+        </div>
+        <div class="caixapesquisa">
+            <p>Pesquisar</p>
+            <div class="iconepesquisa"></div>
+        </div>
+        <div class="imagemlogo"></div>
+
     </header>
 
     <div class="uniaoasidemain">
@@ -47,31 +56,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <nav>
                 <ul>
                     <form action='' method='post'>
-                    <li><a class="disciplina" href="disciplinas.php">DISCIPLINAS</a></li>
-                    <li><a class="materiais" href="#">MATERIAIS</a></li>
-                    <li><a class="perfil" href="#">PERFIL</a></li>
+                        <li><a class="disciplina" href="disciplinas.php">DISCIPLINAS</a></li>
+                        <li><a class="materiais" href="#">MATERIAIS</a></li>
+                        <li><a class="perfil" href="#">PERFIL</a></li>
                     </form>
                 </ul>
             </nav>
         </aside>
-<!--------------------------------------------------------------------------------MAIN---------------------------------------------------------------->
+        <!--------------------------------------------------------------------------------MAIN---------------------------------------------------------------->
         <main>
             <h2>Lista de Disciplinas</h2>
-                <div class='caixabotao'>
-                    <?php
-                    $materias = $_SESSION['materias'];
-                    foreach ($materias as $materia) {
-                        $imagemCodificada = base64_encode($materia->icone);
-                        echo "<form action='' method='post'>";
-                        echo "<input type='hidden' name='cod' value='$materia->cod_materia' />";
-                        echo "<button type='submit' name='botaomateria' class='botaomateria'>";
-                        echo "<img class='icone' src='data:image/svg+xml;base64,$imagemCodificada' />";
-                        echo "<span class='nomebotao'>$materia->nome</span>";
-                        echo "</button>";
-                        echo "</form>";
-                    }
-                    ?>
-                </div>            
+            <div class='caixabotao'>
+                <?php
+                $materias = $_SESSION['materias'];
+                foreach ($materias as $materia) {
+                    $imagemCodificada = base64_encode($materia->icone);
+                    echo "<form action='' method='post'>";
+                    echo "<input type='hidden' name='cod' value='$materia->cod_materia' />";
+                    echo "<button type='submit' name='botaomateria' class='botaomateria'>";
+                    echo "<img class='icone' src='data:image/svg+xml;base64,$imagemCodificada' />";
+                    echo "<span class='nomebotao'>$materia->nome</span>";
+                    echo "</button>";
+                    echo "</form>";
+                }
+                ?>
+            </div>
         </main>
 
     </div>

@@ -31,9 +31,12 @@
     border-radius: 50%;
     margin: 100px;
 }
+
 /*------------------------------------------------------------------------------------------------ HEADER--------------------------------------------------*/
 header {
     position: static;
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 75px;
     flex-shrink: 0;
@@ -42,17 +45,71 @@ header {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-header h1 {
-    padding-top: 25px;
+.nomeprofessor {
+    display: block;
     padding-left: 200px;
     color: #FFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 20px;
+    font-size: 10px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
 }
+
+.caixapesquisa {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    right: 300px;
+    width: 281px;
+    height: 31px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+    color: #a8a8a8;
+    /* border: 1px solid green; */
+}
+
+.iconepesquisa {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 31px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    /* border: 1px solid green; */
+}
+
+.iconepesquisa::before {
+    content: ""; /* Cria um pseudo-elemento para a imagem */
+    background-image: url('Imagens/IconedeLupa.svg');
+    background-repeat: no-repeat;
+    background-size: contain; /* Redimensiona a imagem para caber dentro do elemento pai */
+    width: 65%; /* Ajusta a largura do pseudo-elemento para ocupar todo o espaço do pai */
+    height: 80%; /* Ajusta a altura do pseudo-elemento para ocupar todo o espaço do pai */
+    /* border: 1px solid green; */
+}
+
+.imagemlogo {
+    position: absolute;
+    background: url('Imagens/LogoPROsigacomshadowbranca.svg') center/cover no-repeat;
+    right: 70px;
+    width: 150px;
+    height: 50px;
+    flex-shrink: 0;
+    filter: drop-shadow(0px 0px 10px #FFF);
+    /* border: 1px solid green; */
+}
+
 /*-----------------------------------------------------------------------------------------------ASIDE E MAIN -----------------------------------------------*/
 .uniaoasidemain {
     position: static;

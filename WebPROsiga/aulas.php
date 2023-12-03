@@ -33,12 +33,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="fundoavatar"></div>
         <div class="imagemavatar"></div>
     </div>
+    
+<!--------------------------------------------------------------------------------HEADER---------------------------------------------------------------->
+<header>
+        <div class="nomeprofessor">
+            <?php
+            $professor = $_SESSION['professor'];
+            echo "<h1> $professor->nome </h1>"; //NOME DO PROFESSOR AQUI
+            ?>
+        </div>
+        <div class="caixapesquisa">
+            <p>Pesquisar</p>
+            <div class="iconepesquisa"></div>
+        </div>
+        <div class="imagemlogo"></div>
 
-    <header>
-        <?php
-        $professor = $_SESSION['professor'];
-        echo "<h1> $professor->nome </h1>"; //NOME DO PROFESSOR AQUI
-        ?>
     </header>
 
     <div class="uniaoasidemain">

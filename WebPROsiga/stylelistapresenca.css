@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+
 /*------------------------------------------------------------------------------------------------AVATAR----------------------------------------------------*/
 .avatar-container {
     display: flex;
@@ -18,7 +19,8 @@
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 50%;
     position: absolute;
-    transform: translate(-50%, -50%); /* Centraliza o fundoavatar */
+    transform: translate(-50%, -50%);
+    /* Centraliza o fundoavatar */
     margin: 100px;
 }
 
@@ -27,13 +29,17 @@
     height: 135px;
     background: url('Imagens/ImagemProfessor.svg') center/cover no-repeat;
     position: absolute;
-    transform: translate(-50%, -50%); /* Centraliza a imagemavatar */
+    transform: translate(-50%, -50%);
+    /* Centraliza a imagemavatar */
     border-radius: 50%;
     margin: 100px;
 }
+
 /*------------------------------------------------------------------------------------------------ HEADER--------------------------------------------------*/
 header {
     position: static;
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 75px;
     flex-shrink: 0;
@@ -42,17 +48,71 @@ header {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-header h1 {
-    padding-top: 25px;
+.nomeprofessor {
+    display: block;
     padding-left: 200px;
     color: #FFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 20px;
+    font-size: 10px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
 }
+
+.caixapesquisa {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    right: 300px;
+    width: 281px;
+    height: 31px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+    color: #a8a8a8;
+    /* border: 1px solid green; */
+}
+
+.iconepesquisa {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 31px;
+    flex-shrink: 0;
+    border-radius: 32px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    /* border: 1px solid green; */
+}
+
+.iconepesquisa::before {
+    content: ""; /* Cria um pseudo-elemento para a imagem */
+    background-image: url('Imagens/IconedeLupa.svg');
+    background-repeat: no-repeat;
+    background-size: contain; /* Redimensiona a imagem para caber dentro do elemento pai */
+    width: 65%; /* Ajusta a largura do pseudo-elemento para ocupar todo o espaço do pai */
+    height: 80%; /* Ajusta a altura do pseudo-elemento para ocupar todo o espaço do pai */
+    /* border: 1px solid green; */
+}
+
+.imagemlogo {
+    position: absolute;
+    background: url('Imagens/LogoPROsigacomshadowbranca.svg') center/cover no-repeat;
+    right: 70px;
+    width: 150px;
+    height: 50px;
+    flex-shrink: 0;
+    filter: drop-shadow(0px 0px 10px #FFF);
+    /* border: 1px solid green; */
+}
+
 /*-----------------------------------------------------------------------------------------------ASIDE E MAIN -----------------------------------------------*/
 .uniaoasidemain {
     position: static;
@@ -61,6 +121,7 @@ header h1 {
     width: 100wh;
     /* border: 2px solid green; */
 }
+
 /*--------------------------------------------------------------------------------------------------ASIDE----------------------------------------------------*/
 aside {
     position: static;
@@ -69,37 +130,48 @@ aside {
     margin-top: 15px;
     border-radius: 0px 19px 0px 0px;
     background: linear-gradient(180deg, #D9D9D9 0%, rgba(217, 217, 217, 0.44) 100%);
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     /* border: 2px solid orange; */
-   
+
 }
 
 .disciplina,
 .materiais,
 .perfil {
 
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Sombra do texto */
-    font-size: 20px; /* Tamanho da fonte */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* Sombra do texto */
+    font-size: 20px;
+    /* Tamanho da fonte */
 
     margin-top: 2px;
     display: inline-block;
-    width: 100%; /* Largura igual à do aside */
-    padding: 15px 50px; /* Espaçamento interno */
-    border-radius: 5px; /* Borda arredondada */
+    width: 100%;
+    /* Largura igual à do aside */
+    padding: 15px 50px;
+    /* Espaçamento interno */
+    border-radius: 5px;
+    /* Borda arredondada */
     background-repeat: no-repeat;
-    background-size: 30px 30px; /*Tamanho da imagem*/
-    background-position: left; /* Posicionamento horizontal da imagem */
+    background-size: 30px 30px;
+    /*Tamanho da imagem*/
+    background-position: left;
+    /* Posicionamento horizontal da imagem */
     background-position-x: 10px;
-    text-decoration: none; /* Remover sublinhado padrão */
-    color: #000000; /* Cor do texto */
+    text-decoration: none;
+    /* Remover sublinhado padrão */
+    color: #000000;
+    /* Cor do texto */
 }
 
 /* Efeito hover na caixa */
 .disciplina:hover,
 .materiais:hover,
 .perfil:hover {
-    background-color: rgba(255, 0, 0, 0.5); /* Altera a cor de fundo ao passar o mouse */
-    color: #FFF; /* Altera a cor do texto ao passar o mouse */
+    background-color: rgba(255, 0, 0, 0.5);
+    /* Altera a cor de fundo ao passar o mouse */
+    color: #FFF;
+    /* Altera a cor do texto ao passar o mouse */
 }
 
 .disciplina {
@@ -114,6 +186,7 @@ aside {
 .perfil {
     background-image: url('Imagens/Perfil.svg');
 }
+
 /*------------------------------------------------------------------------------------------------------MAIN-----------------------------------------------*/
 main {
     position: relative;
@@ -122,17 +195,19 @@ main {
     align-items: center;
     width: 100%;
     height: 100hv;
-    margin: 15px 0 0 10px;    
+    margin: 15px 0 0 10px;
     background: url('Imagens/LogoFatecFundo.svg') center no-repeat;
     /* border: 1px solid blue; */
     overflow: auto;
 }
 
-h2 { /*LISTA D EPRESENÇA*/
+h2 {
+    /*LISTA D EPRESENÇA*/
     width: fit-content;
-    margin-top: 50px; /*cima, esquerda, baixo*/
+    margin-top: 50px;
+    /*cima, esquerda, baixo*/
     /* border: 1px solid green; */
-    
+
 }
 
 /*----------------------------------------------------------------------------------------- MATERIA E DATA ----------------------------------------*/
@@ -140,7 +215,7 @@ h2 { /*LISTA D EPRESENÇA*/
     position: relative;
     display: flex;
     width: 90%;
-    min-height: 50px; 
+    min-height: 50px;
     /* border: 1px solid green; */
 }
 
@@ -148,26 +223,31 @@ h2 { /*LISTA D EPRESENÇA*/
     content: '';
     position: absolute;
     top: 0;
-    left: 35px; /* Deslocamento para a direita */
+    left: 35px;
+    /* Deslocamento para a direita */
     height: 100%;
     width: 1px;
-    border-left: 2px solid #000; /* Borda lateral esquerda deslocada */
+    border-left: 2px solid #000;
+    /* Borda lateral esquerda deslocada */
 }
 
 .cabecalhomateria::after {
     content: '';
     position: absolute;
-    bottom: 5px; /* Deslocamento para cima */
+    bottom: 5px;
+    /* Deslocamento para cima */
     left: 0;
     height: 1px;
     width: 100%;
-    border-bottom: 2px solid #000; /* Borda inferior deslocada */
+    border-bottom: 2px solid #000;
+    /* Borda inferior deslocada */
 }
 
 .fundocabecalhomateria {
-    position: static ;
+    position: static;
     width: 100%;
-    margin: 5px 0 2px 2px ; /*cima, direita, baixo, esquerda*/
+    margin: 5px 0 2px 2px;
+    /*cima, direita, baixo, esquerda*/
     background: #D9D9D9;
 }
 
@@ -181,8 +261,10 @@ h2 { /*LISTA D EPRESENÇA*/
 
 .cabecalhomateria .nomemateria {
     position: absolute;
-    top: 10px; /* Posiciona o elemento no meio verticalmente */
-    left: 40px; /* Posiciona o elemento no meio horizontalmente */
+    top: 10px;
+    /* Posiciona o elemento no meio verticalmente */
+    left: 40px;
+    /* Posiciona o elemento no meio horizontalmente */
     color: #000;
     font-size: 30px;
     font-style: normal;
@@ -192,7 +274,8 @@ h2 { /*LISTA D EPRESENÇA*/
 
 /*-----------------------------------------------------------------------------------------------------CAIXA TABELA-------------------------------------------*/
 .caixatabela {
-    width: 90%; 
+    width: 90%;
+    justify-items: center;
     /* border: 1px solid green; */
 }
 
@@ -215,17 +298,18 @@ table {
     font-size: 20px;
 }
 
-.col-imagem {   
-}
+/* .col-imagem {
+
+} */
 
 .col-nome {
     position: relative;
     text-align: left;
-    padding: 5px;
+    padding-left: 6px;
 }
 
 .col-status {
-    width: 70PX;    
+    width: 70PX;
 }
 
 /*--------------------------------------------------------------------CONTEÚDO TABELA---------------------------------------*/
@@ -236,14 +320,14 @@ table {
 }
 
 
-.foto,
+/* .foto,
 .nomealuno,
 .status {
-    /* border: 1px solid green; */
-}
+     border: 1px solid green;
+} */
 
 .foto {
-    width: 30px;
+    width: 35px;
 }
 
 .editfoto {
@@ -251,7 +335,8 @@ table {
     margin: auto;
     width: 25px;
     height: 25px;
-    transition: transform 0.3s ease-in-out; /* Adiciona uma transição suave */
+    transition: transform 0.3s ease-in-out;
+    /* Adiciona uma transição suave */
 }
 
 .editfoto:hover {
@@ -259,16 +344,19 @@ table {
 }
 
 .nomealuno {
-    padding-left: 5px;
+    padding-left: 7px;
 }
 
 .checkbox {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%; /* Para ocupar toda a largura da célula */
-    height: 100%; /* Para ocupar toda a altura da célula */
-    box-sizing: border-box; /* Garante que o padding e a borda não afetem o tamanho total */
+    width: 100%;
+    /* Para ocupar toda a largura da célula */
+    height: 100%;
+    /* Para ocupar toda a altura da célula */
+    box-sizing: border-box;
+    /* Garante que o padding e a borda não afetem o tamanho total */
 }
 
 tbody tr:nth-child(odd) {
@@ -276,26 +364,37 @@ tbody tr:nth-child(odd) {
 }
 
 tr:nth-child(even) {
-    background-color: transparent; 
+    background-color: transparent;
 }
 
 /*----------------------------------------------------------------BOTAO DE SALVAR CHAMADA---------------------------------------*/
 
+.caixabotao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid green; */
+}
+
 .salvarchamada {
     margin-top: 30px;
-    width: 102%;
-    height: 80%;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
     font-size: 15px;
     font-weight: 700;
-    border-radius: 10px;
-    border: 1px solid black ;
-    transition: transform 0.1s ease-in-out; /* Adiciona uma transição suave */
+    border-radius: 5px;
+    border: none;
+    background-color: #D9D9D9;
+    transition: transform 0.1s ease-in-out;
+    /* Adiciona uma transição suave */
 }
 
 .salvarchamada:hover {
-    background-color: rgb(160, 185, 160);
+    background-color: #a8a8a8;
     color: rgb(7, 7, 7);
-    transform: scale(1.1);
+    transform: scale(1.02);
+}
 
 /*----------------------------------------------------------------------------------------FOOTER--------------------------------------------------------------------------------*/
 footer {
