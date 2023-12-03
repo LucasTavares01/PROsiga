@@ -21,7 +21,7 @@ bool modo;
 long int cartao;
 String nomeAluno;
 bool reset;
-const int tLimite = 4000;
+const int tLimite = 8000;
 bool falhaCOM;
 
 
@@ -31,14 +31,14 @@ bool falhaCOM;
   const int buzzer = 2; //OK
 
   const int pinLiberar = 47;
-  const int pinCancelar = 46; 
-  const int pinModo = 45;
+  const int pinCancelar = 46;
 
   LiquidCrystal lcd(12, 11, 10, 9, 8, 7);  //OK
 
-  const int pinSensorPassagem1 = 42;
-  const int pinSensorPassagem2 = 43;
-  const int pinSensorPassagem3 = 44;
+  const int pinSensorPassagem1 = 44;
+  const int pinSensorPassagem2 = 42;
+  const int pinSensorPassagem3 = 43;
+  const int pinModo = 22;
   int ultPassagem;
 
 void setup()
@@ -57,7 +57,7 @@ void setup()
   
   pinMode(pinModo, INPUT);
 
-  modo = analogRead(A15)>1020;
+  modo = digitalRead(pinModo)==1;
 
   lcd.begin(16, 2);
   reset = true;
@@ -69,6 +69,19 @@ void setup()
   rfid.PCD_Init(); //INICIALIZA MFRC522
 
   motor.attach(servoPin);
+  servo(true);
+  if(digitalRead(pinSensorPassagem1)==1)
+  {
+    ultPassagem = 1;
+  }
+  else if(digitalRead(pinSensorPassagem2)==1)
+  {
+    ultPassagem = 2;
+  }
+  else if(digitalRead(pinSensorPassagem3)==1)
+  {
+    ultPassagem = 3;
+  }
 }
 
 void loop()
@@ -322,6 +335,7 @@ void liberarPassagem()
 
 bool detectarPassagem()
 {
+
   if(ultPassagem!=1 && digitalRead(pinSensorPassagem1)==1)
   {
     ultPassagem = 1;
@@ -378,7 +392,7 @@ void limparDados()
   cartao = 0;
   excessao = false;
   nomeAluno = "";
-  modo = analogRead(A15)>1020;
+  modo = digitalRead(pinModo)==1;
 }
 
 void sinal(bool cor, bool som, int duracao, int vezes)
@@ -433,5 +447,5 @@ void sinal(bool cor, bool som, int duracao, int vezes)
 void servo(bool status)
 {
   if(status) motor.write(0);
-  else motor.write(100);
+  else motor.write(170);
 }
