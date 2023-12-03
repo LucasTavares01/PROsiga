@@ -42,6 +42,12 @@
             </div>
         </form>
     </div>
+
+    <script>
+        function exibirPopupErro(mensagem) {
+            alert(mensagem);
+        }
+    
     
     <?php
     require($_SERVER['DOCUMENT_ROOT'].'/PROsiga/Backend/Controles/controleSessao.php');
@@ -59,7 +65,7 @@
                 
             } else {
                 //Erro no Login
-                echo "Login falhou. Verifique suas credenciais.";
+                echo "exibirPopupErro('Login falhou. Verifique suas credenciais.');";;
             }
         }
         
@@ -81,6 +87,7 @@
         //     header("Location: aulas.php");
         // }
     }
-?>
+    ?>
+    </script>
 </body>
 </html>
