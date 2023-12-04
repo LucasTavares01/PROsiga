@@ -5,23 +5,16 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST['salvarChamada'])) {
         $presencas = $_SESSION['presencas'];
-        $index = 0;
-        $lista = [];
-        //$checkboxes = isset($_POST['checkbox']) ? $_POST['checkbox'] : array();
-        foreach ($presencas as $presenca) {
-            $check = $_POST['presencas'][$index];
-            if ($check === 'on') {
+        foreach ($presencas as $presenca) {            
+            if (isset($_POST['lista'][$presenca->aluno->nome])) {                
                 $presenca->presencas = 1;
             } else {
                 $presenca->presencas = 0;
-            }
-            echo '<pre>', var_dump($check, $presenca->presencas), '</pre>';
-            $lista[] = $presenca;
-            $index++;
+            }            
         }
         //echo '<pre>' , var_dump($presencas) , '</pre>';
         //echo '<pre>' , var_dump($lista) , '</pre>';
-        ControleSessao::salvarChamada($lista);
+        ControleSessao::salvarChamada($presencas);
         header("Location: aulas.php");
         exit();
     }
@@ -131,9 +124,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                                 echo "<td class='status'>";
                                 if (($aluno->status === "PRESENTE" && $aula->status === "NAO REALIZADA") || ($aula->status === "REALIZADA" && $presenca->presencas > 0)) {
-                                    echo "<b><input type='checkbox' class='checkbox' id=$index name='presencas[]' checked/></b>";
+                                    echo "<b><input type='checkbox' class='checkbox' id='$nome' name='lista[$nome]' value='$nome' checked/></b>";
                                 } else {
-                                    echo "<input type='checkbox' class ='checkbox' id=$index name='presencas[]' />";
+                                    echo "<input type='checkbox' class ='checkbox' id='$nome' name='lista[$nome]' value='$nome' />";
                                 }
                                 echo "</td>";
                                 echo "</tr>";

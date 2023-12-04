@@ -75,6 +75,10 @@ class ControleSessao {
     
     public static function salvarChamada($presencas) {
         ControlePresenca::salvarPresencas($presencas);
+        //foreach($presencas as $presenca) {
+            //echo '<pre>' , var_dump($presencaS->id_presenca, $presenca->id_presenca, $presenca->aluno->nome, $presenca->presencas, $presenca->nome) , '</pre>';
+        //}
+        
         $presencas = [];
         $_SESSION['presencas'] = $presencas;
         $_SESSION['aula']->status = "REALIZADA";
